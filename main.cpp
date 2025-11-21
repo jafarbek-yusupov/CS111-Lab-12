@@ -14,8 +14,7 @@ In this lab, the hash code of an integer is simply
 the integer itself.
 ===================================================== */
 int hashCodeInt(int key) {
-  // TODO: implement
-  return 0;
+  return key;
 }
 
 /* =====================================================
@@ -26,9 +25,12 @@ Use polynomial accumulation with a = 33.
 Formula: h(s) = s_0 + s_1*a + s_2*a^2 + ... + s_{k-1}*a^{k-1}
 ===================================================== */
 int hashCodeString(const string& s) {
-  // TODO: implement using Horner's rule
-  // hint: int a = 33;
-  return 0;
+  int a = 33; 
+  int h=0;
+  for(char c: s){
+    h = h*a + int(c);
+  }
+  return h;
 }
 
 /* =====================================================
@@ -41,13 +43,11 @@ using Division and MAD methods:
 - MAD: |a*y + b| mod N
 ===================================================== */
 int compressDivision(int hashCode, int N) {
-  // TODO: implement Division method
-  return 0;
+  return abs(hashCode)%N;
 }
 
 int compressMAD(int hashCode, int N, int a, int b) {
-  // TODO: implement MAD method
-  return 0;
+  return abs(a*hashCode + b)%N;
 }
 
 /* =====================================================
